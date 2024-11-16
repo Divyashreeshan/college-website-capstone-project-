@@ -1,0 +1,101 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-image: url('cbe-campus.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 0%;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black background */
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+
+  
+  div.transbox {
+    margin: 30px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.6;
+  }
+  
+  div.transbox p {
+    margin: 5%;
+    font-weight: bold;
+    color: #000000;
+  }
+  .aumslogintitle{
+    text-align: center;
+    font-weight:bold;
+    text-underline-position:below;
+
+  }
+  
+  .img2 {
+    float: right;
+   
+  
+
+  }
+  
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display:grid;
+    
+  }
+  .selectcampus{
+    text-align: center;
+  }
+  img:hover {
+    opacity: 0.5;
+  }
+  .img3 {
+    float: none;
+  }
+  
+  .ample::after {
+    content: "";
+    clear: both;
+    display:table;
+   
+    
+  }
+  .Ample{
+    text-align: center;
+  }
+  .contact{
+    text-align: left;
+    padding-left: 10%;
+  }
+
+
+
+

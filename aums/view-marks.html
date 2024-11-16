@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Report</title>
+    <link rel="stylesheet" href="stylem.css">
+</head>
+<body style="background-color: #081b29;">
+    <div class="frame">
+        <h1 style="color: pink; text-align: center;">STUDENT MARK REPORT</h1>
+        <form id="attendanceForm" style="margin-top: 20px;">
+            <p style="color: #0ef; margin-bottom: 5px;">Roll no :</p>
+            <input type="text" id="rollNo" name="rollNo" value="CH.SC.U4CSE23XYZ" required>
+            <p style="color: #0ef; margin-top: 10px; margin-bottom: 5px;">NAME</p>
+            <input type="text" id="name" name="name" value="XYZ" required>
+        </br>
+    </br>
+</br>
+            <label for="semester" style="color: brown; margin-top: 10px; margin-bottom: 5px;">Semester:</label>
+            <select id="semester" name="semester" style="margin-bottom: 10px;">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </br>
+    </br>
+</br>            <input type="submit" value="Student Mark Report" style="color: white; margin-right: 10px;" onclick="showPhoto()">
+
+</br>
+</br>
+
+           
+        <div id="photoContainer" style="display: none; margin-top: 20px;">
+            <img src="marksheet.png" alt="Attendance Photo" style="max-width: 100%;">
+        </div>
+    </div>
+
+    <script>
+        function showPhoto() {
+            event.preventDefault();
+            var photoContainer = document.getElementById("photoContainer");
+            photoContainer.style.display = "block";
+            
+        }
+    </script>
+</body>
+</html>

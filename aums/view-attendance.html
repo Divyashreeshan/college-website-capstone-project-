@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Report</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+<body style="background-color: #081b29;">
+    <div class="frame">
+        <h1 style="color:#0ef; text-align: center;">COMPREHENSIVE <span style="color: aliceblue;">ATTENDANCE REPORT</span></h1>
+        <form id="attendanceForm" style="margin-top: 20px;">
+            <p style="color: pink; font-size: 20px; margin-bottom: 5px;">Roll no :</p>
+            <input type="text" id="rollNo" name="rollNo" value="CH.SC.U4CSE23XYZ" required>
+            <p style="color: pink; font-size: 20px; margin-top: 10px; margin-bottom: 5px;">NAME</p>
+            <input type="text" id="name" name="name" value="XYZ" required>
+        </br>
+    </br>
+</br>
+            <label for="semester" style="color:darkorange;  font-size: 20px; margin-top: 10px; margin-bottom: 5px;">Semester:</label>
+            <select id="semester" name="semester" style="margin-bottom: 10px;">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <label for="course" style="color: darkorange; font-size: 20px; margin-bottom: 5px;">Course:</label>
+            <select id="course" name="course" style="margin-bottom: 20px;">
+                <option value="user_interface_design">User Interface Design</option>
+                <option value="linear_algebra">Linear Algebra</option>
+                <option value="discrete_mathematics">Discrete Mathematics</option>
+                <option value="java">Java</option>
+                <option value="technical_communication">Technical Communication</option>
+            </select>
+        </br>
+    </br>
+</br>
+            <input type="submit" value="Attendance Summary" style="color: orangered; margin-right: 10px;" onclick="showPhoto()">
+            <input type="submit" value="Show Course Wise Report" style="color: mediumseagreen;">
+        </form>
+    </br>
+</br>
+        <div id="photoContainer" style="display: none; margin-top: 20px;">
+            <img src="placeholder-photo.png" alt="Attendance Photo" style="max-width: 100%;">
+        </div>
+    </div>
+
+    <script>
+        function showPhoto() {
+            event.preventDefault();
+            var photoContainer = document.getElementById("photoContainer");
+            photoContainer.style.display = "block";
+            
+        }
+    </script>
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+<script>
+const xValues = ["UID", "OOPS", "ALGEBRA", "DISCRETE", "ENGLISH","ADM"];
+const yValues = [96, 87, 75, 90, 80,60];
+const barColors = ["red", "green","blue","orange","yellow","white"];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Subject wise Attendance Report"
+    }
+  }
+});
+</script>
+
+</body>
+</html>

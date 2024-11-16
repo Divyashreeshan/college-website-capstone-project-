@@ -1,0 +1,27 @@
+.body{
+    text-align: center;
+}
+.feetable{
+    border: 3px;
+    table-layout: fixed;
+    margin: auto;
+
+}
+.table,th,td{
+ border: 1px solid aqua;
+}
+.th{
+    font-weight: 200;   
+   
+}
+
+.head-row{
+    color:white;
+}
+.secondrow{
+    color: aliceblue;
+}
+
+.feereceipt{
+    padding-left: 50%;
+}

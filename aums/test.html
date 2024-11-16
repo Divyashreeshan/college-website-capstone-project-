@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test and Quiz</title>
+    <link rel="stylesheet" href="vstyle.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Test and Quiz</h1>
+        <p>This is a simple test page for your practice.</p>
+        <form action="submit.php" method="POST">
+            <div class="question">
+                <label for="q1">Question 1: What is the capital of France?</label><br>
+                <input type="text" id="q1" name="q1" required>
+            </div>
+            <div class="question">
+                <label for="q2">Question 2: What is the largest mammal?</label><br>
+                <input type="text" id="q2" name="q2" required>
+            </div>
+            <div class="question">
+                <label for="q3">Question 3: Who wrote the play "Hamlet"?</label><br>
+                <input type="text" id="q3" name="q3" required>
+            </div>
+            <div class="question">
+                <label for="q4">Question 4: How many continents are there?</label><br>
+                <input type="number" id="q4" name="q4" required>
+            </div>
+            <button type="submit">Submit Answers</button>
+        </form>
+    </div>
+</body>
+</html>

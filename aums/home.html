@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="vstylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            background-color: mediumseagreen; /* Background color mediumseagreen */
+            padding: 0px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header img {
+            width: 100px;
+            margin-right: 20px;
+            opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 2s;
+        }
+
+        .main-menu {
+            background-color: #ff8c00; /* Orange background color */
+            padding: 20px;
+            width: 200px;
+            margin-top: 20px;
+            border-right: 1px solid #ddd;
+            height: calc(100vh - 50px); /* Adjust height according to header height */
+            float: left;
+            animation: slideTop 1s ease forwards;
+            animation-delay: 1s;
+        }
+
+
+        .main-menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .main-menu ul li {
+            margin-bottom: 10px;
+            position: relative; /* Make the dropdown container relative */
+        }
+
+        .main-menu ul li a {
+            color: #fff; /* Text color */
+            text-decoration: none;
+            display: block;
+            padding: 5px;
+            background-color: #ff8c00; /* Orange background color */
+            position: relative;
+        }
+
+        .main-menu ul li a:hover {
+            background-color: red; /* Red hover color */
+        }
+
+        .main-menu ul .dropdown-arrow {
+            position: absolute;
+            top: 0;
+            right: -20px;
+            width: 20px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .main-menu ul .dropdown-arrow::after {
+            content: '\25B6'; /* Unicode arrow character */
+            font-size: 12px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: #ff8c00; /* Orange background color */
+            padding: 0;
+            display: none;
+        }
+
+        .dropdown-menu li {
+            margin-bottom: 0;
+        }
+
+        .dropdown-menu li a {
+            padding: 5px 20px; /* Adjust padding */
+            display: block;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: red; /* Red hover color */
+        }
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+        .content {
+            padding: 20px;
+            margin-top: 20px;
+            overflow: hidden;
+          
+        }
+
+        .message-of-the-day,
+        .calendar {
+            background-color: #fff; /* White background color */
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+            color: maroon; /* Maroon color font */
+        }
+
+        .calendar img {
+            width: 100%; /* Make the image responsive */
+        }
+
+        .message-of-the-day {
+            float: left;
+            width: calc(50% - 10px); /* Adjust width based on calendar and margin */
+            margin-right: 20px;
+        }
+
+        .announcements {
+            background-color: white; /* Mediumseagreen background color */
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .announcement-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .announcement-table th, .announcement-table td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .announcement-table th {
+            background-color: mediumseagreen; /* Mediumseagreen background color */
+            color: #fff; /* White text color */
+        }
+        .icons {
+    display: flex;
+    align-items: auto;
+    padding-left: 70%;
+}
+
+.icons img {
+    margin-left: 10px; /* Add some spacing between icons */
+}
+.profile-dropdown {
+            position: relative;
+        }
+
+        .profile-dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1;
+            border: 1px solid #ddd;
+        }
+
+        .profile-dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .profile-dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .profile-dropdown:hover .profile-dropdown-content {
+            display: block;
+        }
+        #calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.day {
+    border: 1px solid black;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.today {
+    background-color: lightblue;
+}
+h4.april
+{
+    color: aqua;
+    
+}
+.subjectcode{
+ 
+    border-radius: 2px;
+}
+.vnavbar {
+  overflow: hidden;
+  background-color: #333;
+
+
+}
+
+.vnavbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.vdropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.vdropdown .vdropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.vnavbar a:hover, .vdropdown:hover .vdropbtn {
+  background-color: red;
+}
+
+.vdropdown-content {
+  display: none;
+  position: absolute;
+  background-color: orange;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.vdropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.vdropdown-content a:hover {
+  background-color: red;
+}
+.homeheading{
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.vdropdown:hover .vdropdown-content {
+  display: block;
+}
+@keyframes slideLeft{
+    0%{
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes slideBottom{
+    0%{
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes slideTop{
+    0%{
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes slideRight{
+    0%{
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav    class="xyz">
+            <div style="background-color: mediumseagreen; padding: 10px;">
+                <img src="amrita-logo.png" alt="Amrita Logo" style="height: 50px; width: 250px;">
+                <h1 class="homeheading">Welcome to Amrita</h1>
+            </div>
+            <div class="profile-dropdown-content">
+                <a href="#">Profile Details</a>
+                <a href="#">Logout</a>
+            </div>
+        </nav>
+        <div class="icons">
+            <img src="profile-icon.png" style="height: 30px;width: 30px;" alt="Profile Icon">
+            <img src="notification.jpg" style="height: 30px;width: 30px;" alt="Notification Icon">
+        </div>
+      
+    </div>
+    <div class="main-menu">
+        <h2>Main Menu</h2>
+        <ul>
+            <li>
+                <a href="#">Exam Score</a>
+                <div class="dropdown-arrow"></div>
+                <ul class="dropdown-menu">
+                    <li ><a href="view-attendance.html">View Attendance</a></li>1
+                    <li><a href="view-marks.html">View Marks</a></li>
+                    <li><a href="#">View Grades</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Fee</a>
+                <div class="dropdown-arrow"></div>
+                <ul class="dropdown-menu">
+                    <li><a href="fee-recipt.html">Download Fee Receipt</a></li>
+                    <li><a href="fee-recipt.html">View Fee Detail</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Dues</a>
+                <div class="dropdown-arrow"></div>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Veiw Department Dues</a></li>
+                   
+                </ul>
+            </li>
+            <li>
+                <a href="#">Personal</a>
+                <div class="dropdown-arrow"></div>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Update Account</a></li>
+                    <li><a href="#">Student Profile</a></li>
+                    <li><a href="#">ABCID Master</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Library</a>
+                <div class="dropdown-arrow"></div>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Renew Books</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">OPAC</a>
+                <div class="dropdown-arrow"></div>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Books</a></li>
+                    <li><a href="#">Journals</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="feedback.html"><button type="button">Feedback </button></a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <div class="vnavbar">
+            <a  style="color: aqua;" href="#home">COURSES: </a>
+            <div class="vdropdown">
+              <button class="vdropbtn">UID
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="vdropdown-content">
+                <a href="#">Syllabus</a>
+                <a href="#">Lessons</a>
+                <a href="#">Assignment</a>
+                <a href="test.html">Test & Quizes</a>
+                <a href="#">Resources</a>
+                <a href="#">Message</a>
+              </div>
+            </div> 
+            <div class="vdropdown">
+                <button class="vdropbtn">OOPS
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="vdropdown-content">
+                  <a href="#">Syllabus</a>
+                  <a href="#">Lessons</a>
+                  <a href="#">Assignment</a>
+                  <a href="test.html">Test & Quizes</a>
+                  <a href="#">Resources</a>
+                  <a href="#">Message</a>
+                </div>
+              </div> 
+              <div class="vdropdown">
+                <button class="vdropbtn">ALGEBRA
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="vdropdown-content">
+                  <a href="#">Syllabus</a>
+                  <a href="#">Lessons</a>
+                  <a href="#">Assignment</a>
+                  <a href="test.html">Test & Quizes</a>
+                  <a href="#">Resources</a>
+                  <a href="#">Message</a>
+                </div>
+              </div> 
+              <div class="vdropdown">
+                <button class="vdropbtn">DISCRETE
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="vdropdown-content">
+                  <a href="#">Syllabus</a>
+                  <a href="#">Lessons</a>
+                  <a href="#">Assignment</a>
+                  <a href="test.html">Test & Quizes</a>
+                  <a href="#">Resources</a>
+                  <a href="#">Message</a>
+                </div>
+              </div> 
+              <div class="vdropdown">
+                <button class="vdropbtn">ENGLISH
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="vdropdown-content">
+                  <a href="#">Syllabus</a>
+                  <a href="#">Lessons</a>
+                  <a href="#">Assignment</a>
+                  <a href="test.html">Test & Quizes</a>
+                  <a href="#">Resources</a>
+                  <a href="#">Message</a>
+                </div>
+              </div> 
+              <div class="vdropdown">
+                <button class="vdropbtn">ADM
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="vdropdown-content">
+                  <a href="#">Syllabus</a>
+                  <a href="#">Lessons</a>
+                  <a href="#">Assignment</a>
+                  <a href="test.html">Test & Quizes</a>
+                  <a href="#">Resources</a>
+                  <a href="#">Message</a>
+                </div>
+              </div> 
+          </div>
+    </div>
+    <div class="content">
+        <div class="message-of-the-day">
+            <p style="color: mediumseagreen;"><strong><b>MESSAGE OF THE DAY:</b></strong></p>
+            <p><strong>Om Amriteswaryai Namah</strong></p>
+        </br>
+    </br>
+            <p><b>Everything happens spontaneously when you distance yourself from your mind.</b></p>
+        </br>
+    </br>
+            <p><b>Chancellor, Sri Mata Amritanandamayi Devi</b></p>
+</br>
+
+            <p><b>Amrita Chennai Campus</b></p>
+        </div>
+        <div class="calendar">
+            <p style="color: mediumseagreen;"><strong>Calendar:</strong></p>
+            
+            <div id ="calendar"></div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+    const calendar = document.getElementById('calendar');
+    const today = new Date();
+    const currentMonth = today.getMonth();
+    const currentYear = today.getFullYear();
+
+    function createCalendar(year, month) {
+        const startDate = new Date(year, month, 1);
+        const endDate = new Date(year, month + 1, 0);
+        const daysInMonth = endDate.getDate();
+
+        // Clear existing calendar
+        calendar.innerHTML = '';
+
+        // Create day headers
+        const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        daysOfWeek.forEach(day => {
+            const dayElement = document.createElement('div');
+            dayElement.classList.add('day');
+            dayElement.textContent = day;
+            calendar.appendChild(dayElement);
+        });
+
+        // Fill in the calendar with days
+        for (let i = 1; i <= daysInMonth; i++) {
+            const dayElement = document.createElement('div');
+            dayElement.classList.add('day');
+            dayElement.textContent = i;
+            if (year === currentYear && month === currentMonth && i === today.getDate()) {
+                dayElement.classList.add('today');
+            }
+            calendar.appendChild(dayElement);
+        }
+    }
+
+    createCalendar(currentYear, currentMonth);
+});
+            </script>
+        </div>
+        <div class="announcements">
+            <h2 style="color:mediumseagreen;">Announcements</h2>
+            <table class="announcement-table">
+                <tr>
+                    <th style="color: white;">Subject</th>
+                </tr>
+                <tr>
+                    <td style="color: darkgreen;">Assignment: Open Date</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const dropdownArrows = document.querySelectorAll('.dropdown-arrow');
+            const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+
+            dropdownArrows.forEach((arrow, index) => {
+                arrow.addEventListener('click', function() {
+                    dropdownMenus[index].classList.toggle('show');
+                });
+            });
+        });
+    </script>
+    </script>
+    <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    
